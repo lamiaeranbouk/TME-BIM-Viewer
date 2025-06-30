@@ -1,0 +1,49 @@
+/* Reset et styles globaux */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ecf0f1;
+  overflow: hidden;
+}
+
+/* Styles pour les inputs */
+input[type="url"], input[type="file"] {
+  transition: all 0.3s ease;
+}
+
+input[type="url"]:focus {
+  transform: scale(1.02);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.control-section {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Scrollbar personnalisée */
+.controls-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.controls-panel::-webkit-scrollbar-track {
+  background: #34495e;
+}
+
+.controls-panel::-webkit-scrollbar-thumb {
+  background: #3498db;
+  border-radius: 4px;
+}
+
+.controls-panel::-webkit-scrollbar-thumb:hover {
+  background: #2980b9;
+}

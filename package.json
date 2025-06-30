@@ -4,13 +4,16 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "concurrently \"npm run server\" \"ng serve -o --proxy-config proxy.conf.js\"",
     "build": "ng build -c development",
     "build:prod": "ng build -c production",
     "build:both": "npm run build && npm run build:prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "server": "node server/server.js",
+    "dev": "concurrently \"npm run server\" \"ng serve --proxy-config proxy.conf.js\""
+
   },
   "private": true,
   "dependencies": {
@@ -28,7 +31,10 @@
     "three": "^0.136.0",
     "tslib": "^2.3.0",
     "web-ifc-three": "0.0.117",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^13.1.2",
@@ -45,6 +51,7 @@
     "karma-coverage": "^2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.7.0",
-    "typescript": "~4.5.4"
+    "typescript": "~4.5.4",
+    "concurrently": "^8.2.2"
   }
 }
